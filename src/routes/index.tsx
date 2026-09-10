@@ -443,7 +443,7 @@ function Index() {
       <footer className="border-t border-border bg-ink text-ink-foreground">
         <div className="mx-auto max-w-6xl px-4 py-8 lg:px-8">
           <p className="font-display text-base font-bold">
-            Home<span className="text-accent">Lane</span>
+            Ana<span className="text-accent">vya</span>
           </p>
           <p className="mt-1 text-sm text-ink-foreground/60">
             Interiors designed, made and installed by one team.
