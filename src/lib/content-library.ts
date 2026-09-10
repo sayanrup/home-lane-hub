@@ -119,7 +119,7 @@ export const COMPOSITIONS: Record<Intent, Composition> = {
     eyebrow: "Interiors, end to end",
     headline: "Homes that feel finished, not furnished.",
     answer:
-      "Anvaya designs, manufactures and installs full home interiors. Fixed price agreed before work starts, handover in 45 days, 10-year warranty on modular cabinetry.",
+      "Anvaya designs, manufactures and installs full home interiors. Your journey for dream home starts here.",
     cta: "Book a free design session",
     ctaNote: "We will call you within 24 hours.",
     lead: "overview",
