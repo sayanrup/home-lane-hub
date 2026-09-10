@@ -1,5 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
 import {
   ArrowRight,
@@ -43,6 +43,14 @@ import kitchenImg from "@/assets/kitchen.jpg";
 import bedroomImg from "@/assets/bedroom.jpg";
 import studyImg from "@/assets/study.jpg";
 import wardrobeImg from "@/assets/wardrobe.jpg";
+import kitchen2 from "@/assets/kitchen-2.jpg";
+import kitchen3 from "@/assets/kitchen-3.jpg";
+import bedroom2 from "@/assets/bedroom-2.jpg";
+import bedroom3 from "@/assets/bedroom-3.jpg";
+import wardrobe2 from "@/assets/wardrobe-2.jpg";
+import wardrobe3 from "@/assets/wardrobe-3.jpg";
+import study2 from "@/assets/study-2.jpg";
+import study3 from "@/assets/study-3.jpg";
 
 type Search = Partial<Record<"q" | "intent" | "src" | "city" | "speed", string>>;
 
@@ -79,11 +87,93 @@ export const Route = createFileRoute("/")({
 });
 
 const spaces = [
-  { title: "Modular kitchens", copy: "Soft-close hardware, moisture-proof cores, layouts planned around how you cook.", img: kitchenImg },
-  { title: "Bedrooms", copy: "Warm palettes, storage-first beds, headboards made to your ceiling height.", img: bedroomImg },
-  { title: "Wardrobes", copy: "Sliding, hinged or walk-in — fitted wall to wall with zero dead corners.", img: wardrobeImg },
-  { title: "Studies & storage", copy: "Work nooks, crockery units and TV walls that borrow no floor space.", img: studyImg },
+  { title: "Modular kitchens", copy: "Soft-close hardware, moisture-proof cores, layouts planned around how you cook.", images: [kitchenImg, kitchen2, kitchen3] },
+  { title: "Bedrooms", copy: "Warm palettes, storage-first beds, headboards made to your ceiling height.", images: [bedroomImg, bedroom2, bedroom3] },
+  { title: "Wardrobes", copy: "Sliding, hinged or walk-in — fitted wall to wall with zero dead corners.", images: [wardrobeImg, wardrobe2, wardrobe3] },
+  { title: "Studies & storage", copy: "Work nooks, crockery units and TV walls that borrow no floor space.", images: [studyImg, study2, study3] },
 ];
+
+/** Instagram-style swipeable gallery: snap scrolling, looping, dot indicator. */
+function ImageCarousel({ images, alt }: { images: string[]; alt: string }) {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [index, setIndex] = useState(0);
+  const n = images.length;
+  // [last, ...images, first] so swiping past either end wraps seamlessly.
+  const slides = [images[n - 1]!, ...images, images[0]!];
+
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    const place = () => {
+      if (el.clientWidth) el.scrollLeft = el.clientWidth;
+    };
+    place();
+    const id = requestAnimationFrame(place);
+    window.addEventListener("resize", place);
+    return () => {
+      cancelAnimationFrame(id);
+      window.removeEventListener("resize", place);
+    };
+  }, []);
+
+  const onScroll = () => {
+    const el = trackRef.current;
+    if (!el) return;
+    const w = el.clientWidth;
+    if (!w) return;
+    const raw = Math.round(el.scrollLeft / w);
+    if (raw <= 0) {
+      el.scrollLeft = n * w;
+      setIndex(n - 1);
+    } else if (raw >= n + 1) {
+      el.scrollLeft = w;
+      setIndex(0);
+    } else {
+      setIndex(raw - 1);
+    }
+  };
+
+  const goTo = (i: number) => {
+    const el = trackRef.current;
+    if (el) el.scrollTo({ left: (i + 1) * el.clientWidth, behavior: "smooth" });
+  };
+
+  return (
+    <div className="relative">
+      <div
+        ref={trackRef}
+        onScroll={onScroll}
+        className="flex snap-x snap-mandatory overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {slides.map((src, i) => (
+          <img
+            key={`${src}-${i}`}
+            src={src}
+            alt={`${alt} ${i}`}
+            width={1200}
+            height={900}
+            loading="lazy"
+            draggable={false}
+            className="aspect-[4/3] w-full shrink-0 snap-center object-cover"
+          />
+        ))}
+      </div>
+      <div className="pointer-events-none absolute inset-x-0 bottom-2.5 flex justify-center gap-1.5">
+        {images.map((src, i) => (
+          <button
+            key={src}
+            type="button"
+            aria-label={`Show image ${i + 1} of ${n}`}
+            onClick={() => goTo(i)}
+            className={`pointer-events-auto h-1.5 rounded-full transition-all ${
+              i === index ? "w-4 bg-background" : "w-1.5 bg-background/60"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 const processSteps = [
   { step: "01", title: "Meet a designer", copy: "Share your floor plan, budget and taste. Free, no obligation." },
@@ -315,16 +405,7 @@ function Index() {
         <div className="mt-8 grid gap-5 sm:grid-cols-2">
           {spaces.map((s) => (
             <article key={s.title} className="overflow-hidden border border-border bg-card">
-              {!lowBandwidth && (
-                <img
-                  src={s.img}
-                  alt={s.title}
-                  width={1200}
-                  height={900}
-                  loading="lazy"
-                  className="aspect-[4/3] w-full object-cover"
-                />
-              )}
+              {!lowBandwidth && <ImageCarousel images={s.images} alt={s.title} />}
               <div className="p-5">
                 <h3 className="font-display text-lg font-semibold">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.copy}</p>
