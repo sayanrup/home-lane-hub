@@ -79,14 +79,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "HomeLane — Interior Design & Modular Interiors" },
+      { title: "Anvaya — Interior Design & Modular Interiors" },
       {
         name: "description",
         content:
-          "HomeLane designs and installs modular kitchens, wardrobes and full home interiors with fixed pricing and on-time handover.",
+          "Anvaya designs and installs modular kitchens, wardrobes and full home interiors with fixed pricing and on-time handover.",
       },
-      { name: "author", content: "HomeLane" },
-      { property: "og:title", content: "HomeLane — Interior Design & Modular Interiors" },
+      { name: "author", content: "Anvaya" },
+      { property: "og:title", content: "Anvaya — Interior Design & Modular Interiors" },
       {
         property: "og:description",
         content: "Full home interiors with fixed pricing, 45-day installation and a 10-year warranty.",
@@ -106,7 +106,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
   }),
 
