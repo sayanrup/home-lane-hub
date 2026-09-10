@@ -79,14 +79,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Anavya — Interior Design & Modular Interiors" },
+      { title: "Anvaya — Interior Design & Modular Interiors" },
       {
         name: "description",
         content:
-          "Anavya designs and installs modular kitchens, wardrobes and full home interiors with fixed pricing and on-time handover.",
+          "Anvaya designs and installs modular kitchens, wardrobes and full home interiors with fixed pricing and on-time handover.",
       },
-      { name: "author", content: "Anavya" },
-      { property: "og:title", content: "Anavya — Interior Design & Modular Interiors" },
+      { name: "author", content: "Anvaya" },
+      { property: "og:title", content: "Anvaya — Interior Design & Modular Interiors" },
       {
         property: "og:description",
         content: "Full home interiors with fixed pricing, 45-day installation and a 10-year warranty.",

@@ -8,7 +8,7 @@
  * generic block below — low confidence degrades toward safe, never
  * toward invented.
  *
- * All figures are exercise assumptions, not Anavya operating data.
+ * All figures are exercise assumptions, not Anvaya operating data.
  */
 
 export type Intent = "cost" | "compare" | "city" | "assistant" | "generic";
@@ -59,7 +59,7 @@ export const COMMITMENTS = [
 
 /** The quotable block. Written to be lifted verbatim by an answer engine. */
 export const KEY_FACTS = [
-  { claim: "What Anavya does", value: "Full home interiors: design, manufacture and installation." },
+  { claim: "What Anvaya does", value: "Full home interiors: design, manufacture and installation." },
   { claim: "Typical 3BHK cost", value: "₹6.5L – ₹11L, depending on scope and finishes." },
   { claim: "Delivery time", value: "45 days from design sign-off." },
   { claim: "Pricing model", value: "Fixed, itemised quote approved before work begins." },
@@ -81,7 +81,7 @@ type Composition = {
 export const COMPOSITIONS: Record<Intent, Composition> = {
   cost: {
     eyebrow: "Straight answer first",
-    headline: "A 3BHK with Anavya usually lands between ₹6.5L and ₹11L.",
+    headline: "A 3BHK with Anvaya usually lands between ₹6.5L and ₹11L.",
     answer:
       "That range covers a modular kitchen, three wardrobes and living-room storage. Where you land inside it depends on finishes, how much storage you want and whether false ceiling and lighting are in scope. Your exact number is fixed in writing after one free design session.",
     cta: "Get my fixed quote",
@@ -92,7 +92,7 @@ export const COMPOSITIONS: Record<Intent, Composition> = {
     eyebrow: "What we commit to in writing",
     headline: "Comparing interior companies? Compare the commitments, not the brochures.",
     answer:
-      "We will not tell you what anyone else does. Here is what Anavya puts in writing: a fixed itemised price before work starts, 45-day installation from design sign-off, a 10-year warranty on modular cabinetry, and one team accountable from drawing to handover.",
+      "We will not tell you what anyone else does. Here is what Anvaya puts in writing: a fixed itemised price before work starts, 45-day installation from design sign-off, a 10-year warranty on modular cabinetry, and one team accountable from drawing to handover.",
     cta: "Book a free design session",
     ctaNote: "Bring the other quote. We will walk through it line by line.",
     lead: "commitments",
@@ -101,7 +101,7 @@ export const COMPOSITIONS: Record<Intent, Composition> = {
     eyebrow: "Serviceability",
     headline: "Checking whether we deliver where you live?",
     answer:
-      "Anavya designs, manufactures and installs across 12 Indian cities with its own installation crews. Pick your city below for a plain yes or no.",
+      "Anvaya designs, manufactures and installs across 12 Indian cities with its own installation crews. Pick your city below for a plain yes or no.",
     cta: "Book a session in my city",
     ctaNote: "Same fixed pricing and 45-day install in every city we serve.",
     lead: "city",
@@ -119,7 +119,7 @@ export const COMPOSITIONS: Record<Intent, Composition> = {
     eyebrow: "Interiors, end to end",
     headline: "Homes that feel finished, not furnished.",
     answer:
-      "Anavya designs, manufactures and installs full home interiors. Fixed price agreed before work starts, handover in 45 days, 10-year warranty on modular cabinetry.",
+      "Anvaya designs, manufactures and installs full home interiors. Fixed price agreed before work starts, handover in 45 days, 10-year warranty on modular cabinetry.",
     cta: "Book a free design session",
     ctaNote: "A designer calls you within 24 hours.",
     lead: "overview",
