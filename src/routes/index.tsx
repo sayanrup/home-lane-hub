@@ -58,13 +58,13 @@ export const Route = createFileRoute("/")({
   },
   head: () => ({
     meta: [
-      { title: "HomeLane — Full Home Interiors, Fixed Price, 45-Day Install" },
+      { title: "Anavya — Full Home Interiors, Fixed Price, 45-Day Install" },
       {
         name: "description",
         content:
-          "A 3BHK with HomeLane costs ₹6.5L–₹11L. Fixed itemised price before work starts, 45-day installation, 10-year warranty on modular cabinetry, 12 Indian cities.",
+          "A 3BHK with Anavya costs ₹6.5L–₹11L. Fixed itemised price before work starts, 45-day installation, 10-year warranty on modular cabinetry, 12 Indian cities.",
       },
-      { property: "og:title", content: "HomeLane — Full Home Interiors, Fixed Price, 45-Day Install" },
+      { property: "og:title", content: "Anavya — Full Home Interiors, Fixed Price, 45-Day Install" },
       {
         property: "og:description",
         content:
@@ -101,7 +101,7 @@ const faqs = [
   { q: "What does a 3BHK cost?", a: "Between ₹6.5L and ₹11L, depending on scope and finishes. Your exact number is fixed in an itemised quote after one free design session." },
   { q: "How long does a full home take?", a: "45 days of installation from the day the design is signed off. Design itself usually takes about two weeks." },
   { q: "Is the quote really fixed?", a: "Yes. Once you approve the itemised quote, the price stays put unless you change the scope." },
-  { q: "Which cities do you serve?", a: `HomeLane delivers in ${SERVICE_CITIES.join(", ")}.` },
+  { q: "Which cities do you serve?", a: `Anavya delivers in ${SERVICE_CITIES.join(", ")}.` },
   { q: "What does the warranty cover?", a: "10 years on modular cabinetry and 1 year on services such as painting, electrical and false ceiling." },
 ];
 
@@ -111,14 +111,14 @@ function jsonLd() {
     "@graph": [
       {
         "@type": "Organization",
-        name: "HomeLane",
-        description: "HomeLane designs, manufactures and installs full home interiors in India.",
+        name: "Anavya",
+        description: "Anavya designs, manufactures and installs full home interiors in India.",
         areaServed: SERVICE_CITIES.map((c) => ({ "@type": "City", name: c })),
       },
       {
         "@type": "Service",
         name: "Full home interior design and installation",
-        provider: { "@type": "Organization", name: "HomeLane" },
+        provider: { "@type": "Organization", name: "Anavya" },
         offers: {
           "@type": "AggregateOffer",
           priceCurrency: "INR",
@@ -182,7 +182,7 @@ function Index() {
       toast.error("Please add your name and phone number.");
       return;
     }
-    toast.success("Thanks! A HomeLane designer will call you within 24 hours.");
+    toast.success("Thanks! A Anavya designer will call you within 24 hours.");
     setForm({ name: "", phone: "", city: "", message: "" });
   }
 
@@ -208,7 +208,7 @@ function Index() {
           <>
             <img
               src={heroLiving}
-              alt="Warm modern living room designed by HomeLane"
+              alt="Warm modern living room designed by Anavya"
               width={1920}
               height={1200}
               className="absolute inset-0 h-full w-full object-cover"
@@ -240,7 +240,7 @@ function Index() {
             {/* Ask anything — re-composes this page from the approved content library */}
             <form onSubmit={handleSearch} className="mt-6">
               <label htmlFor="hero-search" className="sr-only">
-                Ask about HomeLane
+                Ask about Anavya
               </label>
               <div className="flex items-center gap-2 rounded-full border border-accent/60 bg-ink-foreground/95 py-1.5 pl-4 pr-1.5 shadow-lg focus-within:border-accent">
                 <Search className="h-4 w-4 shrink-0 text-ink/60" />
@@ -270,7 +270,7 @@ function Index() {
       {/* Key facts — the quotable layer */}
       <section id="key-facts" className="border-b border-border bg-secondary">
         <div className="mx-auto max-w-6xl px-4 py-7 lg:px-8">
-          <h2 className="font-display text-lg font-semibold sm:text-xl">Key facts about HomeLane</h2>
+          <h2 className="font-display text-lg font-semibold sm:text-xl">Key facts about Anavya</h2>
           <dl className="mt-4 grid gap-x-8 gap-y-2.5 sm:grid-cols-2 lg:grid-cols-3">
             {KEY_FACTS.map((f) => (
               <div key={f.claim} className="border-l-2 border-primary/40 pl-3">
@@ -445,7 +445,7 @@ function Index() {
             Interiors designed, made and installed by one team.
           </p>
           <p className="mt-4 text-xs text-ink-foreground/50">
-            © {new Date().getFullYear()} HomeLane. Prices shown are indicative ranges, not quotes.
+            © {new Date().getFullYear()} Anavya. Prices shown are indicative ranges, not quotes.
           </p>
         </div>
       </footer>
@@ -513,7 +513,7 @@ function CityModule({
         >
           {supported ? <Check className="h-4 w-4" /> : <X className="h-4 w-4" />}
           {supported
-            ? `Yes — HomeLane designs and installs in ${selected}.`
+            ? `Yes — Anavya designs and installs in ${selected}.`
             : `Not yet in ${selected}. Leave your number and we will tell you when we arrive.`}
         </p>
       )}
