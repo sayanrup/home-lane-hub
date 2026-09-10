@@ -166,7 +166,13 @@ function Index() {
     e.preventDefault();
     setCaptured(null);
     navigate({
-      search: (prev: Search) => ({ ...prev, q: query.trim() || undefined }),
+      search: (prev: Search) => {
+        const next = { ...prev };
+        const q = query.trim();
+        if (q) next.q = q;
+        else delete next.q;
+        return next;
+      },
     });
   }
 
