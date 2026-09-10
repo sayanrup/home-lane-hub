@@ -44,20 +44,22 @@ import studyImg from "@/assets/study.jpg";
 import wardrobeImg from "@/assets/wardrobe.jpg";
 
 type Search = {
-  q?: string;
-  intent?: string;
-  src?: string;
-  city?: string;
-  speed?: string;
+  q: string | undefined;
+  intent: string | undefined;
+  src: string | undefined;
+  city: string | undefined;
+  speed: string | undefined;
 };
+
+const str = (v: unknown): string | undefined => (typeof v === "string" && v ? v : undefined);
 
 export const Route = createFileRoute("/")({
   validateSearch: (s: Record<string, unknown>): Search => ({
-    q: typeof s.q === "string" ? s.q : undefined,
-    intent: typeof s.intent === "string" ? s.intent : undefined,
-    src: typeof s.src === "string" ? s.src : undefined,
-    city: typeof s.city === "string" ? s.city : undefined,
-    speed: typeof s.speed === "string" ? s.speed : undefined,
+    q: str(s["q"]),
+    intent: str(s["intent"]),
+    src: str(s["src"]),
+    city: str(s["city"]),
+    speed: str(s["speed"]),
   }),
   head: () => ({
     meta: [
