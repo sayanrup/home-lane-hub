@@ -121,7 +121,7 @@ export const COMPOSITIONS: Record<Intent, Composition> = {
     answer:
       "Anvaya designs, manufactures and installs full home interiors. Fixed price agreed before work starts, handover in 45 days, 10-year warranty on modular cabinetry.",
     cta: "Book a free design session",
-    ctaNote: "A designer calls you within 24 hours.",
+    ctaNote: "We will call you within 24 hours.",
     lead: "overview",
   },
 };
