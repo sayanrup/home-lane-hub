@@ -194,8 +194,11 @@ function Index() {
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-border/60 bg-background/90 backdrop-blur">
         <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 lg:px-8">
-          <a href="#top" className="truncate font-display text-lg font-bold tracking-tight">
-            Home<span className="text-primary">Lane</span>
+          <a href="#top" className="flex min-w-0 items-center gap-2">
+            <img src={logoMark} alt="Anavya logo" width={512} height={512} className="h-8 w-8 shrink-0" />
+            <span className="truncate font-display text-lg font-bold tracking-tight">
+              Ana<span className="text-primary">vya</span>
+            </span>
           </a>
           <Button asChild size="sm" className="shrink-0 rounded-none px-4 text-xs sm:text-sm">
             <a href="#consult">Free design session</a>
