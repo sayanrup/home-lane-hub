@@ -183,7 +183,7 @@ function Index() {
       toast.error("Please add your name and phone number.");
       return;
     }
-    toast.success("Thanks! A Anavya designer will call you within 24 hours.");
+    toast.success("Thanks! An Anavya designer will call you within 24 hours.");
     setForm({ name: "", phone: "", city: "", message: "" });
   }
 
