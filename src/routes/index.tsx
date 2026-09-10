@@ -395,16 +395,7 @@ function Index() {
         <div className="mt-8 grid gap-5 sm:grid-cols-2">
           {spaces.map((s) => (
             <article key={s.title} className="overflow-hidden border border-border bg-card">
-              {!lowBandwidth && (
-                <img
-                  src={s.img}
-                  alt={s.title}
-                  width={1200}
-                  height={900}
-                  loading="lazy"
-                  className="aspect-[4/3] w-full object-cover"
-                />
-              )}
+              {!lowBandwidth && <ImageCarousel images={s.images} alt={s.title} />}
               <div className="p-5">
                 <h3 className="font-display text-lg font-semibold">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.copy}</p>
