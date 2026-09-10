@@ -103,7 +103,17 @@ function ImageCarousel({ images, alt }: { images: string[]; alt: string }) {
 
   useEffect(() => {
     const el = trackRef.current;
-    if (el) el.scrollLeft = el.clientWidth;
+    if (!el) return;
+    const place = () => {
+      if (el.clientWidth) el.scrollLeft = el.clientWidth;
+    };
+    place();
+    const id = requestAnimationFrame(place);
+    window.addEventListener("resize", place);
+    return () => {
+      cancelAnimationFrame(id);
+      window.removeEventListener("resize", place);
+    };
   }, []);
 
   const onScroll = () => {
@@ -112,10 +122,10 @@ function ImageCarousel({ images, alt }: { images: string[]; alt: string }) {
     const w = el.clientWidth;
     if (!w) return;
     const raw = Math.round(el.scrollLeft / w);
-    if (raw === 0) {
+    if (raw <= 0) {
       el.scrollLeft = n * w;
       setIndex(n - 1);
-    } else if (raw === n + 1) {
+    } else if (raw >= n + 1) {
       el.scrollLeft = w;
       setIndex(0);
     } else {
