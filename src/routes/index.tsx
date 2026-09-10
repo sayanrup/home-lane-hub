@@ -37,6 +37,7 @@ import {
 } from "@/lib/content-library";
 import { classifyIntent, detectLowBandwidth, detectSource, normaliseCity } from "@/lib/personalize";
 
+import logoMark from "@/assets/anavya-mark.png";
 import heroLiving from "@/assets/hero-living.jpg";
 import kitchenImg from "@/assets/kitchen.jpg";
 import bedroomImg from "@/assets/bedroom.jpg";
