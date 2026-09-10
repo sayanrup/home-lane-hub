@@ -43,6 +43,14 @@ import kitchenImg from "@/assets/kitchen.jpg";
 import bedroomImg from "@/assets/bedroom.jpg";
 import studyImg from "@/assets/study.jpg";
 import wardrobeImg from "@/assets/wardrobe.jpg";
+import kitchen2 from "@/assets/kitchen-2.jpg";
+import kitchen3 from "@/assets/kitchen-3.jpg";
+import bedroom2 from "@/assets/bedroom-2.jpg";
+import bedroom3 from "@/assets/bedroom-3.jpg";
+import wardrobe2 from "@/assets/wardrobe-2.jpg";
+import wardrobe3 from "@/assets/wardrobe-3.jpg";
+import study2 from "@/assets/study-2.jpg";
+import study3 from "@/assets/study-3.jpg";
 
 type Search = Partial<Record<"q" | "intent" | "src" | "city" | "speed", string>>;
 
