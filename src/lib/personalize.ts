@@ -11,8 +11,11 @@ export type Signals = {
 };
 
 const COST_WORDS = ["cost", "price", "pricing", "budget", "quote", "lakh", "cheap", "rate", "bhk"];
-const COMPARE_WORDS = ["vs", "versus", "compare", "better", "alternative", "review", "or "];
-const CITY_WORDS = ["near me", "in ", "city", "deliver", "available", "serviceable", "branch"];
+const COMPARE_WORDS = ["vs", "versus", "compare", "comparison", "better", "alternative", "alternatives", "review", "reviews"];
+const CITY_WORDS = ["near me", "city", "cities", "deliver", "delivery", "available", "serviceable", "branch", "location"];
+
+const hasWord = (q: string, words: string[]) =>
+  words.some((w) => new RegExp(`(^|\\s)${w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(\\s|$)`).test(q));
 
 /** Rule-based intent classification. Unknown phrasing degrades to generic. */
 export function classifyIntent(query: string | null, source: Source, explicit?: string): Intent {
@@ -21,9 +24,9 @@ export function classifyIntent(query: string | null, source: Source, explicit?: 
 
   const q = (query ?? "").toLowerCase().trim();
   if (q) {
-    if (COMPARE_WORDS.some((w) => q.includes(w))) return "compare";
-    if (COST_WORDS.some((w) => q.includes(w))) return "cost";
-    if (CITY_WORDS.some((w) => q.includes(w))) return "city";
+    if (hasWord(q, COMPARE_WORDS)) return "compare";
+    if (hasWord(q, COST_WORDS) || /\d\s*bhk/.test(q)) return "cost";
+    if (hasWord(q, CITY_WORDS)) return "city";
   }
   if (source === "assistant") return "assistant";
   return "generic";
