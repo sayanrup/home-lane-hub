@@ -140,6 +140,8 @@ function jsonLd() {
 
 function Index() {
   const search = Route.useSearch();
+  const navigate = useNavigate({ from: "/" });
+  const [query, setQuery] = useState(search.q ?? "");
   const [source, setSource] = useState<Source>("direct");
   const [lowBandwidth, setLowBandwidth] = useState(false);
   const [captured, setCaptured] = useState<Intent | null>(null);
@@ -158,6 +160,14 @@ function Index() {
 
   const c = COMPOSITIONS[intent] ?? COMPOSITIONS.generic;
   const geo = normaliseCity(cityPick ?? search.city ?? null);
+
+  function handleSearch(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setCaptured(null);
+    navigate({
+      search: (prev: Search) => ({ ...prev, q: query.trim() || undefined }),
+    });
+  }
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
