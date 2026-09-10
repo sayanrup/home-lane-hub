@@ -37,7 +37,7 @@ import {
 } from "@/lib/content-library";
 import { classifyIntent, detectLowBandwidth, detectSource, normaliseCity } from "@/lib/personalize";
 
-import logoMark from "@/assets/anavya-mark.png";
+
 import heroLiving from "@/assets/hero-living.jpg";
 import kitchenImg from "@/assets/kitchen.jpg";
 import bedroomImg from "@/assets/bedroom.jpg";
@@ -195,7 +195,7 @@ function Index() {
       <header className="sticky top-0 z-50 border-b border-border/60 bg-background/90 backdrop-blur">
         <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 lg:px-8">
           <a href="#top" className="flex min-w-0 items-center gap-2">
-            <img src={logoMark} alt="Anvaya logo" width={512} height={512} className="h-8 w-8 shrink-0" />
+            
             <span className="truncate font-display text-lg font-bold tracking-tight">
               An<span className="text-primary">vaya</span>
             </span>
