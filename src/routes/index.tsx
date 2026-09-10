@@ -209,19 +209,18 @@ function Index() {
             <div className="absolute inset-0 bg-gradient-to-b from-ink/90 via-ink/80 to-ink/95" />
           </>
         )}
-        <div className={`relative mx-auto max-w-6xl px-4 py-12 lg:px-8 lg:py-20 ${lowBandwidth ? "bg-ink" : ""}`}>
+        <div className={`relative mx-auto max-w-6xl px-4 py-10 lg:px-8 lg:py-14 ${lowBandwidth ? "bg-ink" : ""}`}>
           <div className="max-w-2xl text-ink-foreground">
             <p className="flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-accent">
               <Sparkles className="h-3.5 w-3.5" /> {c.eyebrow}
             </p>
-            <h1 className="mt-4 font-display text-[28px] leading-[1.15] font-semibold sm:text-4xl lg:text-5xl">
+            <h1 className="mt-3 font-display text-[26px] leading-[1.15] font-semibold sm:text-4xl">
               {c.headline}
             </h1>
-            <p className="mt-4 text-sm leading-relaxed text-ink-foreground/85 sm:text-base">{c.answer}</p>
-            <p className="mt-3 text-xs text-ink-foreground/60">{SOURCE_NOTE[source]}</p>
+            <p className="mt-3 text-sm leading-relaxed text-ink-foreground/85">{c.answer}</p>
 
             {/* Lead module — selected, never generated */}
-            <div className="mt-7">
+            <div className="mt-5">
               {c.lead === "price" && <PriceModule />}
               {c.lead === "commitments" && <CommitmentsModule />}
               {c.lead === "city" && (
@@ -231,14 +230,32 @@ function Index() {
               {c.lead === "overview" && <OverviewModule />}
             </div>
 
-            <div className="mt-7 flex flex-col gap-2 sm:flex-row sm:items-center">
-              <Button asChild size="lg" className="w-full rounded-none sm:w-auto sm:px-7">
-                <a href="#consult">
-                  {c.cta} <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
-              <p className="text-xs text-ink-foreground/60 sm:ml-3">{c.ctaNote}</p>
-            </div>
+            {/* Ask anything — re-composes this page from the approved content library */}
+            <form onSubmit={handleSearch} className="mt-6">
+              <label htmlFor="hero-search" className="sr-only">
+                Ask about HomeLane
+              </label>
+              <div className="flex items-center gap-2 rounded-full border border-accent/60 bg-ink-foreground/95 py-1.5 pl-4 pr-1.5 shadow-lg focus-within:border-accent">
+                <Search className="h-4 w-4 shrink-0 text-ink/60" />
+                <input
+                  id="hero-search"
+                  type="search"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder="Ask about cost, cities, warranty…"
+                  className="min-w-0 flex-1 bg-transparent text-sm text-ink placeholder:text-ink/50 focus:outline-none"
+                />
+                <button
+                  type="submit"
+                  className="shrink-0 rounded-full bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                >
+                  Ask
+                </button>
+              </div>
+              <p className="mt-2 text-xs text-ink-foreground/60">
+                {c.ctaNote} · <a href="#consult" className="underline underline-offset-2">{c.cta}</a>
+              </p>
+            </form>
           </div>
         </div>
       </section>
