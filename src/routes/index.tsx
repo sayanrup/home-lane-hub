@@ -343,7 +343,7 @@ function Index() {
                   type="search"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Ask about cost, cities, warranty…"
+                  placeholder="Ask about cost, designs, warranty…"
                   className="min-w-0 flex-1 bg-transparent text-sm text-ink placeholder:text-ink/50 focus:outline-none"
                 />
                 <button
