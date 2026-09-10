@@ -291,7 +291,7 @@ function Index() {
             </span>
           </a>
           <Button asChild size="sm" className="shrink-0 rounded-none px-4 text-xs sm:text-sm">
-            <a href="#consult">Free design session</a>
+            <a href="#consult">Book Free Consultation</a>
           </Button>
         </div>
       </header>
