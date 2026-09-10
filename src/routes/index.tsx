@@ -1,9 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 import {
-  ArrowRight,
   Check,
+  Search,
   CheckCircle2,
   Clock3,
   IndianRupee,
@@ -31,7 +31,6 @@ import {
   KEY_FACTS,
   PRICE_BALLPARKS,
   SERVICE_CITIES,
-  SOURCE_NOTE,
   type Intent,
   type Source,
 } from "@/lib/content-library";
