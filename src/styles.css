@@ -142,3 +142,39 @@
     color: var(--color-foreground);
   }
 }
+
+/* ---- HomeLane brand palette (warm luxury) ---- */
+:root {
+  --background: oklch(0.985 0.009 84);
+  --foreground: oklch(0.245 0.021 52);
+  --card: oklch(0.995 0.005 84);
+  --card-foreground: oklch(0.245 0.021 52);
+  --popover: oklch(0.995 0.005 84);
+  --popover-foreground: oklch(0.245 0.021 52);
+  --primary: oklch(0.545 0.135 42);
+  --primary-foreground: oklch(0.985 0.009 84);
+  --secondary: oklch(0.945 0.018 82);
+  --secondary-foreground: oklch(0.30 0.03 50);
+  --muted: oklch(0.945 0.014 84);
+  --muted-foreground: oklch(0.505 0.024 60);
+  --accent: oklch(0.72 0.095 76);
+  --accent-foreground: oklch(0.245 0.021 52);
+  --border: oklch(0.90 0.016 78);
+  --input: oklch(0.90 0.016 78);
+  --ring: oklch(0.545 0.135 42);
+  --radius: 0.25rem;
+  --ink: oklch(0.225 0.018 52);
+  --ink-foreground: oklch(0.97 0.012 84);
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+}
