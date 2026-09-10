@@ -43,24 +43,19 @@ import bedroomImg from "@/assets/bedroom.jpg";
 import studyImg from "@/assets/study.jpg";
 import wardrobeImg from "@/assets/wardrobe.jpg";
 
-type Search = {
-  q: string | undefined;
-  intent: string | undefined;
-  src: string | undefined;
-  city: string | undefined;
-  speed: string | undefined;
-};
+type Search = Partial<Record<"q" | "intent" | "src" | "city" | "speed", string>>;
 
-const str = (v: unknown): string | undefined => (typeof v === "string" && v ? v : undefined);
+const SEARCH_KEYS = ["q", "intent", "src", "city", "speed"] as const;
 
 export const Route = createFileRoute("/")({
-  validateSearch: (s: Record<string, unknown>): Search => ({
-    q: str(s["q"]),
-    intent: str(s["intent"]),
-    src: str(s["src"]),
-    city: str(s["city"]),
-    speed: str(s["speed"]),
-  }),
+  validateSearch: (s: Record<string, unknown>): Search => {
+    const out: Search = {};
+    for (const k of SEARCH_KEYS) {
+      const v = s[k];
+      if (typeof v === "string" && v) out[k] = v;
+    }
+    return out;
+  },
   head: () => ({
     meta: [
       { title: "HomeLane — Full Home Interiors, Fixed Price, 45-Day Install" },
