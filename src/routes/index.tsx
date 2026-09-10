@@ -262,16 +262,13 @@ function Index() {
 
       {/* Key facts — the quotable layer */}
       <section id="key-facts" className="border-b border-border bg-secondary">
-        <div className="mx-auto max-w-6xl px-4 py-10 lg:px-8">
-          <h2 className="font-display text-xl font-semibold sm:text-2xl">Key facts about HomeLane</h2>
-          <p className="mt-1 text-xs text-muted-foreground">
-            Short, checkable statements. Written to be quoted accurately.
-          </p>
-          <dl className="mt-6 divide-y divide-border border-y border-border">
+        <div className="mx-auto max-w-6xl px-4 py-7 lg:px-8">
+          <h2 className="font-display text-lg font-semibold sm:text-xl">Key facts about HomeLane</h2>
+          <dl className="mt-4 grid gap-x-8 gap-y-2.5 sm:grid-cols-2 lg:grid-cols-3">
             {KEY_FACTS.map((f) => (
-              <div key={f.claim} className="grid gap-1 py-3 sm:grid-cols-[minmax(0,200px)_minmax(0,1fr)] sm:gap-6">
-                <dt className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{f.claim}</dt>
-                <dd className="text-sm">{f.value}</dd>
+              <div key={f.claim} className="border-l-2 border-primary/40 pl-3">
+                <dt className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">{f.claim}</dt>
+                <dd className="text-[13px] leading-snug">{f.value}</dd>
               </div>
             ))}
           </dl>
